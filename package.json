@@ -1,0 +1,33 @@
+{
+  "name": "brands-manager-back",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "form-data": "^4.0.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "version": "1.0.0",
+  "description": "This repo contain brands-manager-back",
+  "main": "index.js",
+  "dependencies": {
+    "@elysiajs/cors": "^1.1.1",
+    "@elysiajs/swagger": "^1.1.1",
+    "axios": "^1.7.9",
+    "bun-types": "^1.1.17",
+    "elysia": "^1.1.4",
+    "mongoose": "^8.5.1",
+    "mongoose-paginate-v2": "^1.8.5",
+    "typescript": "^5.5.4",
+    "undici-types": "^5.26.5"
+  },
+  "scripts": {
+    "start": "bun src/index.ts",
+    "dev": "bun src/index.ts --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
