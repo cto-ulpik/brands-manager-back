@@ -27,40 +27,40 @@ const brandController = new Elysia()
     .use(cors({
         // origin: /.*\.ulpik\.com$/, // Cambia esto a tu dominio de frontend
         origin: ['http://localhost:5173', 'http://localhost:4173'],
-        // origin: 'http://localhost:4173',
-        // origin: '*',
+        // origin: 'http://localhost:8080',
+        // origin: 'http://localhost/',
         credentials:true,
         allowedHeaders: ['Content-Type', 'Content-Length','Host','User-Agent','Accept','Accept-Encoding','Connection','Cookie','Set-Cookie'],
         // exposedHeaders: ['Content-Type', 'Content-Length','Host','User-Agent','Accept','Accept-Encoding','Connection','Cookie','Set-Cookie'],
         methods:['POST','GET','PUT','DELETE']
     }))
     
-    .get('/', ()=>{
+    .get('/api', ()=>{
         return 'API v1';
     })
-    .get('/image',async ()=>{
+    .get('/api/image',async ()=>{
         return await getUrlUploadImageCloudflare();
     })
-    .get('/list-brands', async ()=>{
+    .get('/api/list-brands', async ()=>{
         const brands = await getBrands();
         return brands;
     })
-    .get('/list', async ()=>{
+    .get('/api/list', async ()=>{
         const brands = await getEssentialBrands();
         return brands;
     })
-    .get('/page/:numberPage', async ({params:{numberPage}})=>{
+    .get('/api/page/:numberPage', async ({params:{numberPage}})=>{
         console.log('Intento de solicitud')
         const page = await paginationBrands({numberPage});
         console.log(page);
         return page;
     })
-    .get('/brand/:idBrand', async ({params:{idBrand}})=>{
+    .get('/api/brand/:idBrand', async ({params:{idBrand}})=>{
         const brand = await findBrand(idBrand);
         console.log(brand);
         return JSON.stringify(brand);
     })
-    .put('/brand/:idBrand', async ({params:{idBrand}, body})=>{
+    .put('/api/brand/:idBrand', async ({params:{idBrand}, body})=>{
         if (!idBrand) {
             return 'IdBrand is required';
         }
@@ -80,7 +80,7 @@ const brandController = new Elysia()
             return e
         }
     })
-    .delete('/brand/:idBrand', async ({params:{idBrand}})=>{
+    .delete('/api/brand/:idBrand', async ({params:{idBrand}})=>{
 
         try{
             let status = await deleteBrand(idBrand);
@@ -91,7 +91,7 @@ const brandController = new Elysia()
         }
 
     })
-    .post('/brand', async ({body})=>{
+    .post('/api/brand', async ({body})=>{
         try{
             let status = await createBrand(body);
             console.log(status.message)

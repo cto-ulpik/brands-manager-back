@@ -68,9 +68,6 @@ export async function paginationBrands(props:{numberPage:String}){
     try {
         await mongoose.connect(uri, clientOptions);
         await mongoose.connection.db.admin().command({ ping: 1 });
-        
-        
-
         const options = {
             page: numberPage,
             limit: 10,
