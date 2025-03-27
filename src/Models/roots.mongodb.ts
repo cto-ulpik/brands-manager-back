@@ -3,6 +3,7 @@ import type { TitleBrandProperties } from './title-brand.interface';
 import type { PersonProperties } from './person.interface';
 import type { BrandRequestProperties } from './brand-request.interface';
 import type { BrandProperties } from './brand.interface';
+import type { AprobadaMarcaProperties } from './aprobadaMarca.interface';
 
 const mongoose = require('mongoose');
 
@@ -76,10 +77,24 @@ class BrandRequest {
 
 }
 
+class AprobadaMarca {
+    public estado: string = "false";
+    public fechaEntregaTitulo: string = "";
+    public fechaResolucion: string = "";
+    public fechaVencimiento: string = "";
+    public notas: string = "";
+    public numeroGaceta: string = "";
+    public numeroresolucion: string = "";
+    public tituloEntregado: string = "";
+
+    constructor(props: AprobadaMarcaProperties){}
+}
+
 class Brand {
     public phoneticSearchData: PhonethicSearchData = new PhonethicSearchData({state:""});
     public applicant: Applicant = new Applicant({});
     public brandRequest: BrandRequest = new BrandRequest({});
+    public aprobadaMarca: AprobadaMarca = new AprobadaMarca({});
 
     public logoUrl: string = "";
     public createAt: Date = new Date();

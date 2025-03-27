@@ -41,6 +41,18 @@ const BrandSchema = {
       denomination: String,
       nameBrand: { type: String, default: "mi marca" },
       responsible: String,
+
+      aprobadaMarca: {
+        estado: String,
+        fechaEntregaTitulo: String,
+        fechaResolucion: String,
+        fechaVencimiento: String,
+        notas: String,
+        numeroGaceta: String,
+        numeroresolucion: String,
+        tituloEntregado: String
+      },
+
     };
 
 const BrandModel = mongoose.model('brands', BrandSchema);

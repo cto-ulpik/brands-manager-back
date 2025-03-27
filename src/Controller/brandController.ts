@@ -28,7 +28,7 @@ const brandController = new Elysia()
         // origin: /.*\.ulpik\.com$/, // Cambia esto a tu dominio de frontend
         origin: ['http://localhost:5173', 'http://localhost:4173'],
         // origin: 'http://localhost:8080',
-        // origin: 'http://localhost/',
+        // origin: '*',
         credentials:true,
         allowedHeaders: ['Content-Type', 'Content-Length','Host','User-Agent','Accept','Accept-Encoding','Connection','Cookie','Set-Cookie'],
         // exposedHeaders: ['Content-Type', 'Content-Length','Host','User-Agent','Accept','Accept-Encoding','Connection','Cookie','Set-Cookie'],

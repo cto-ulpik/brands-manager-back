@@ -29,6 +29,7 @@ export async function getEssentialBrands(){
         await mongoose.connect(uri, clientOptions);
         await mongoose.connection.db.admin().command({ ping: 1 });
         const brands = await BrandModel.find();
+        
         brands.filter((brand:any)=>{
           return {
             id: brand._id,
@@ -44,7 +45,10 @@ export async function getEssentialBrands(){
             nameBrand: brand.nameBrand,
             idImage: brand.logoUrl,
             createAt: brand.createAt,
-            responsible: brand.responsible
+            responsible: brand.responsible,
+            class: brand.brandRequest.class,
+            numeroresolucion: brand.aprobadaMarca.numeroresolucion,
+            tituloEntregado: brand.aprobadaMarca.tituloEntregado,
           }
         })
         // return brands
